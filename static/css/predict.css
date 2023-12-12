@@ -1,0 +1,16 @@
+.data{
+    border: solid black 1px;
+    width: fit-content;
+    padding: 20px;
+    margin: 20px auto;
+
+}
+
+h3{
+    border-bottom: solid black 1px;
+    padding: 10px;
+}
+
+p:last-of-type{
+    font-weight: bold;
+}

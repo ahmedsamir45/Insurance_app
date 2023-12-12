@@ -1,0 +1,48 @@
+
+body>div{
+    padding-bottom: 40px;
+}
+.main{
+    margin: 20px;
+    padding: 20px;
+  
+}
+*:focus {
+    outline: none;
+}
+form{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    border:solid rgb(0, 119, 255) 1px;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow:13px 13px 20px #cbced1 ;
+   background-color: white;
+}
+input[type='number'],
+input[type='float'],select{
+padding: 10px;
+border-radius: 20px;
+border: none;
+background-color: #eee;
+
+}
+label{
+    font-weight: bold;
+    color: rgb(0, 119, 255);
+
+}
+input[type='number']::placeholder,
+input[type='float']::placeholder,
+select,
+option
+{
+    color: rgb(0, 145, 255);
+}
+

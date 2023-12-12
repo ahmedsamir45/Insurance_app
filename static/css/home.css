@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+img{
+    margin: 20px;
+
+    padding: 30px;
+   box-shadow:13px 13px 20px #cbced1;
+   border-radius: 50px;
+
+}

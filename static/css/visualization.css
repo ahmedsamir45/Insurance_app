@@ -1,0 +1,46 @@
+.fig{
+    display: block;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+img{
+    max-width: 600px;
+    box-shadow:13px 13px 20px #cbced1 ;
+    display: block;
+    margin: auto;
+}
+
+.fig div{
+    display: block;
+}
+.fig .caption{
+    font-size: 22px;
+    font-weight:400;
+}
+
+.main{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+
+}
+
+h2{
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    margin:20px auto;
+    padding: 10px;
+    background-color: white;
+    width: fit-content;
+}
+
+
+.info{
+   
+    margin-bottom: 20px;
+}

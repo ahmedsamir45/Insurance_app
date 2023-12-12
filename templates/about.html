@@ -1,0 +1,176 @@
+{%extends "layout.html"%}
+{% block content%}
+<div class="main_about">
+    <h2 class="main-title">About</h2>
+<div class="data">
+    <h3>Information About the data</h3>
+    <p>  Personal health care cost data is a set of data that contains information about the costs associated with individuals' health care.  This data typically contains information such as age, gender, usage history, and actual health care costs.
+
+        In the context of insurance forecasting using linear regression, this data is used to create a model that can predict costs associated with health care for specific individuals.  With the help of linear regression techniques, the model can analyze factors influencing healthcare costs such as age, gender, health status and associated expectations.
+      
+        Using this predictive model, insurers and healthcare providers can identify financial risks and plan insurance and financial estimates for insured individuals. <a href="https://www.kaggle.com/datasets/mirichoi0218/insurance/data">check the data</a></p>
+    </div>
+    <div class="sklearn">
+        <h3>What is scikit-learn library in Python ?</h3>
+        <p>Scikit-learn is probably the most useful library for machine learning in Python. The sklearn library contains a lot 
+            of efficient tools for machine learning and 
+            statistical modeling including classification, regression, clustering and dimensionality reduction.</p>
+             <p> Key concepts and features include: Algorithmic decision-making methods, including: Classification: identifying and categorizing data based on patterns and Regression : which allows us to fit a linear model to a dataset, predict new values, and evaluate the model's performance. To use the LinearRegression class .</p>
+    
+        </div>
+<div class="decisionTree">
+    <h3>What is decision tree ?</h3>
+    <p>Decision tree is a decision support hierarchical model that uses a tree-like model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility. It is one way to display an algorithm that only contains conditional control statements..</p>
+         <img src="../static/images/decisionTree.jpg" alt="Decision tree for Regression in python">
+
+    </div>
+    <div class="rforest">
+        <h3>What is Random forest regressor in python ?</h3>
+        <p>Random forest is a supervised machine-learning algorithm made up of decision trees. Random Forest is used for both classification and regression problems</p>
+        
+        
+    </div>
+    <div class="rforestp">
+        <h3>What is Random forest ?</h3>
+        <p>Random forest regressor ( ensemble technique ) is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting</p>
+        <p>Ensemble technique is a machine learning technique that combines the predictions from multiple models ( Decision trees ) to create a more accurate and stable prediction. It is an approach that leverages the collective intelligence of multiple models to improve the overall performance of the learning system.</p>
+            <img src="../static/images/random_forest.jpg" alt="">
+        </div>
+<div class="wrforestp">
+    <h3>Why Random forest regressor ?</h3>
+    <p>it is less pron to overfitting due to its ability to randomly select different subsets of the data to train on and average out its results. Generally, Random Forest Regression
+         is better  for predicting numerical values because it offers greater accuracy and prediction stability and increases the accuracy by edit n_estimators</p>
+
+    </div>
+
+
+<div class="columns_discribtion">
+    <h3>Column discribtion</h3>
+    <table id="column_desc">
+        <thead>
+        <tr>
+            <th>Column</th>
+            <th>describtion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for column,desc in packed %}
+
+        <tr>
+            <td>{{column}}</td>
+            <td>{{desc}}</td>
+        </tr>
+ 
+        {%endfor%}
+    </tbody>
+    </table>
+</div>
+<div class="shape">
+    <h3>Shape</h3>
+    <ul>
+        <li>Number of columns: {{shape[1]}}</li>
+        <li>Number of rows: {{shape[0]}}</li>
+    </ul>
+</div>
+
+<div class="info">
+    <h3>Info About Columns</h3>
+    <table Id="info">
+        <thead>
+        <tr>
+            <th>index of columns</th>
+            <th>Column</th>
+            <th>Non_Null Count</th>
+            <th>Dtype</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>age</td>
+            <td>1338 non-null</td>
+            <td>int64</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>sex</td>
+            <td>1338 non-null</td>
+            <td>object</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>bmi</td>
+            <td>1338 non-null</td>
+            <td>float64</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Children</td>
+            <td>1338 non-null</td>
+            <td>int64</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>smoker</td>
+            <td>1338 non-null</td>
+            <td>objedt</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>region</td>
+            <td>1338 non-null</td>
+            <td>objeck</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>charges</td>
+            <td>1338 non-null</td>
+            <td>float64</td>
+        </tr>
+    </tbody>
+    </table>
+
+</div>
+<div class="statistics">
+    <table id="min_max">
+        <h3>statistics</h3>
+        <thead>
+        <tr>
+            <th>Column</th>
+            <th>max</th>
+            <th>min</th>
+            <th>number of unique values</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for column in columns%}
+        <tr>
+            <td>{{column}}</td>
+            <td>{{max[column]}}</td>
+            <td>{{min[column]}}</td>
+            <td>{{nunique[column]}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    </table>
+    
+
+
+</div>
+<div class="model">
+    <h3>modeling</h3>
+    <p>in data pocessing we used one hot encoder to transform the categorical features to numerical</p>
+    <img src="../static/images/One Hot Encoder.JPG" alt="">
+    <p>by using f_regression from feature selction the best features are smoker and age</p>
+   <div class="code">
+    <code>from sklearn.feature_selection import f_regression,SelectKBest</code>
+    <code>mic = SelectKBest(score_func=f_regression,k=2)</code>
+    <code>mic.fit(x,y)</code>
+    <code>feature_MI_score = pd.Series(mic.scores_,index=x.columns)</code>
+    <code>feature_MI_score.sort_values(ascending=False)</code>
+
+</div>
+<p>the accuracy of the model is: <span> {{score}} </span></p>
+</div>
+</div>
+{% endblock content %}

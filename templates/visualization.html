@@ -1,0 +1,62 @@
+{%extends "layout.html"%}
+{% block content%}
+<div class="main">
+    <h2 class="main-title">Data visualization</h2>
+    <div class="info">
+        The plotly.express module (usually imported as px) contains functions that can create entire figures at once, and is referred to as Plotly Express or PX.
+         Plotly Express is a built-in part of the plotly library, and is the recommended starting point for creating most common figures. Every Plotly Express function uses graph objects internally and returns a plotly.graph_objects.Figure instance. Throughout the plotly documentation, you will find the Plotly Express way of building figures at the top of any applicable page, followed by a section on how to use graph objects to build similar figures. Any figure created in a single function call with Plotly Express could be created using graph objects alone,
+         but with between 5 and 100 times more code.
+        </div>
+        <div class="code">
+            <code>import pandas as pd</code>
+            <code>import plotly.express as px</code>
+        <code>
+            data = pd.read_csv('insurance.csv')
+        </code>
+
+ 
+    </div>
+    <div class="fig">
+        <div class="caption">showing the correlation between all columns by imshow function by selecting how many digits we want by round(),
+            showing the numerical information on the graph by using text_auto=True</div>
+           <div class="code">
+                <code>fig = px.imshow(data.corr().round(3) ,text_auto=True )</code>
+                <code>fig.show()</code>
+            </div>
+        <img src="../static/images/correlation.png" alt="">
+    </div>
+    <div class="fig">
+        <div class="caption">showing the count of females and males smokers and not smokers</div>
+        <div class="code">
+            <code>px.histogram(data, x='sex' , text_auto=True ,color='smoker' ,barmode='group' ,
+                color_discrete_sequence = px.colors.qualitative.Vivid)</code>
+        </div>
+        <img src="../static/images/histogram 1.png" alt="">
+    </div>
+
+
+    <div class="fig">
+        <div class="caption">count of every charge </div>
+        <div class="code">
+            <code>px.histogram(data, x='charges')</code>
+        </div>
+        <img src="../static/images/histogram 2.png" alt="">
+    </div>
+
+
+    <div class="fig">
+        <div class="caption">the charges in southeast > northeast > northwest > southwest</div>
+        <div class="code">
+        <code>px.pie(values=data['charges'] , names=data['region'] )</code>
+        </div>
+        <img src="../static/images/pie.png" alt="">
+    </div>
+    <div class="fig">
+        <div class="caption">showing a scatter to determine the charges due to different ages</div>
+        <div class="code">
+        <code>px.scatter(data, x="age", y="charges", color="charges", range_color=[0,70000])</code>
+        </div>
+        <img src="../static/images/scatterplot.png" alt="">
+    </div>
+</div>
+{% endblock content %}

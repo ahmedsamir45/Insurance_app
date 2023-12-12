@@ -1,0 +1,51 @@
+{%extends "layout.html"%}
+{% block content%}
+<div>
+
+    <div class="main">
+        <h2 class="main-title">Charge</h2>
+    <form action="/predict" method="POST">
+
+        <input type="number" name="age" id="" max="100" min="18" placeholder="Age" required>
+        <input type="float" name="bmi" id="" placeholder="Bmi" min="14" max="60" required>
+        <input type="number" name="ch"max="8" min="0" id=""placeholder="Children" required>
+
+        <div class="inp">
+        <label for="">sex</label>
+        <select name="gens" id="" required>
+            <option value="" disabled>Sex</option>
+            {% for gen in sex_unique %}
+            <option value="{{gen}}" name="gens">{{gen}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="inp">
+        <label for="regions">regions</label>
+        <select name="regions" id="regions" required>
+
+            <option value="" disabled>regions</option>
+            {% for reg in region_unique %}
+            <option value="{{reg}}" name="regions">{{reg}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="inp">
+        <label for="smoker">smoker</label>
+        <select name="smoker" id="smoker" required>
+            <option value=""  disabled>Smoker</option>
+            {% for q in smoker_unique %}
+            <option value="{{q}}" name="smoker">{{q}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+            </div>
+        </fieldset>
+        <input type="submit" class="button">
+    </form>
+</div>
+
+
+{% endblock content %}
