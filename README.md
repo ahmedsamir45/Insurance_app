@@ -18,12 +18,12 @@ The Health Insurance Charge Prediction App is a web application developed using 
 
 1. Clone the repository or download the code files:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ahmedsamir45/Insurance_app.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd <project-directory>
+   cd Insurance_app
    ```
 
 3. Create and activate a virtual environment (optional but recommended):
